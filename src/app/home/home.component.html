@@ -1,0 +1,10 @@
+<div class="container">
+    <h3>App Content</h3>
+    <div *ngIf="showRegister">
+        <app-register (registerCancel)="cancelRegisterMode($event)"></app-register>
+    </div>
+    <div *ngIf="!showRegister" class="register">
+        <p>Register if not registered here!</p>
+        <button class="btn btn-primary" (click)="toggleRegisterForm()">Register Here</button>
+    </div>
+</div>
