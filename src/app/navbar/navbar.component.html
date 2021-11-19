@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">CloudPixels</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto" *ngIf="loggedIn">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Your Images</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Account</a>
+        </li>
+      </ul>
+
+      <div class="dropdown" *ngIf="loggedIn" dropdown>
+        <a class="dropdown-toggle text-light" dropdownToggle>Welcome User</a>
+        <div class="dropdown-menu" *dropdownMenu>
+          <div class="dropdown-item">Edit Profile</div>
+          <div class="dropdown-item" (click)="logout()">Logout</div>
+        </div>
+      </div>
+
+      <form  *ngIf="!loggedIn" #loginForm="ngForm" 
+            class="form-inline mt-2 mt-md-0"
+            (ngSubmit)="login()"
+            autocomplete="off">
+        <input 
+            name="username"
+            [(ngModel)]="model.username"
+            class="form-control mr-sm-2"
+            type="text"
+            placeholder="username" 
+            aria-label="username">
+        <input 
+            name="password"
+            [(ngModel)]="model.password"
+            class="form-control mr-sm-2"
+            type="password" 
+            placeholder="password" 
+            aria-label="password">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</nav>
