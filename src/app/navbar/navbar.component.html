@@ -1,18 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">CloudPixels</a>
+    <a class="navbar-brand" routerLink="/">CloudPixels</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Your Images</a>
+          <a class="nav-link" routerLink="/images" routerLinkActive="active">All Images</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Account</a>
-        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Image Detail</a>
+        </li> -->
       </ul>
 
       <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
